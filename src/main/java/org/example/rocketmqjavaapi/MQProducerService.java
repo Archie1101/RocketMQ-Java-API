@@ -18,7 +18,7 @@ public class MQProducerService {
     }
 
     // 定时任务，发送消息到指定topic，每分钟发送一次
-    @Scheduled(fixedRate = 1000) // 每60秒发送一次
+    @Scheduled(fixedRate = 10000) // 每60秒发送一次
     public void sendScheduledMessage() {
         String topic = "topicTest"; // 你可以根据需要动态设置topic
         String message = "定时消息：当前时间 " + System.currentTimeMillis();
