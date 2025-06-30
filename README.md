@@ -13,3 +13,7 @@
 - `http://localhost:8080/api/test` 返回 `1, 2, 3, 4`
 - `http://localhost:8080/sendMessage?topic=topicTest&message=HelloWorld`
   - 参数中`topic`为`topicTest`，那么消息就会发送到`topicTest`中，在DashBoard中就可以看到这个新出现的topic。
+
+但是我仍不确定项目应该设计为以下的哪种情况
+1.前端每请求一次数据，那么数据源就发送一次消息到broker，然后前端更新数据
+2.数据源实时将消息发送到broker（例如1分钟发送一次消息），前端根据发送的消息自动更新
