@@ -10,14 +10,14 @@
 
 我已经写了一个简单的API测试：
 
-- `http://localhost:8080/api/test` 返回 `1, 2, 3, 4`
-- `http://localhost:8080/sendMessage?topic=topicTest&message=HelloWorld`
-  - 参数中`topic`为`topicTest`，那么消息就会发送到`topicTest`中，在DashBoard中就可以看到这个新出现的topic。
+- `http://localhost:8080//api/test` 这里会得到一个返回的JSON，包括键fruits和counts，在前端绘制一张柱状图作为测试
 
-但是我仍不确定项目应该设计为以下的哪种情况
+数据源实时将消息发送到broker（例如10s发送一次消息），前端根据发送的消息自动更新
 
-1.前端每请求一次数据，那么数据源就发送一次消息到broker，然后前端更新数据
+前段测试Vue3`https://github.com/Archie1101/HPTV-Vue`
 
-2.数据源实时将消息发送到broker（例如1分钟发送一次消息），前端根据发送的消息自动更新
+将项目build后放入Apache服务器中的htdocs文件夹，并且注意修改`httpd.conf`
 
-我个人倾向为数据源实时发送消息，前端自动处理，因为大屏数据应该是实时展示的，而不是用户刷新一次，大屏才刷新一次
+然后通过 `http://localhost:8888` 访问前端，或是直接在Vite的 `http://localhost:5173` 进行测试
+
+前提是跨域访问设置正确
